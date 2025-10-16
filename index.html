@@ -1,23 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todo List - Yama</title>
 
-    <!-- css external file -->
-     <link rel="stylesheet" href="css/style.css">
+    <!-- CSS External File -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+
 <body>
-    <!-- header section -->
-     <header></header>
 
-    <!-- main content section -->
-     <main></main>
+    <!-- Header Section -->
+    <header>
+        <h1 class="text-3xl font-bold">My Todo List</h1>
+    </header>
 
-    <!-- footer section  -->
-     <footer></footer>
-    
-    
+    <!-- Main Content Section -->
+    <main>
+        <section class="todo-app my-4">
+            <input type="text" class="border rounded p-2" id="todo-input" placeholder="Add a new task..." />
+            <input type="date" class="border rounded p-2" id="todo-date" placeholder="Select due date..." />
+            <button class="bg-blue-500 text-white rounded p-2" onclick="addTask();">Add</button>
+        </section>
+
+        <!-- Action Buttons Section -->
+        <section class="flex justify-between my-4">
+            <button class="bg-gray-300 rounded p-2" id="filter-btn">Filter</button>
+            <button class="bg-red-500 text-white rounded p-2" onclick="deleteAllTasks();">Delete All Tasks</button>
+        </section>
+
+        <section class="my-4">
+            <h2 class="text-2xl">List of Tasks</h2>
+            <ul id="task-list">
+                <!-- Tasks will be dynamically added here -->
+                <li>No tasks added yet</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p class="text-sm">&copy; 2025 Amrulhaq Ikbar Robbani</p>
+    </footer>
+
+    <!-- Javascript External File -->
+    <script src="js/script.js"></script>
 </body>
+
 </html>
