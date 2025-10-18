@@ -1,5 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-    justify-items: center;
-    height: 100vh;
-    align-content: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tambahan: biar tombol filter aktif kelihatan */
+.filter-active {
+  background-color: #6366f1 !important;
 }

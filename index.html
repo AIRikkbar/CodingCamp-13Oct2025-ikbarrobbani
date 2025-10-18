@@ -1,55 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List - Yama</title>
-
-    <!-- CSS External File -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+<body class="bg-[#0f172a] flex justify-center items-center h-screen">
 
-<body>
+  <div class="bg-[#1e293b] text-white p-8 rounded-2xl shadow-lg w-[650px]">
+    <h1 class="text-3xl font-bold text-center mb-6">Todo List</h1>
 
-    <!-- Header Section -->
-    <header>
-        <h1 class="text-3xl font-bold">My Todo List</h1>
-    </header>
+    <!-- Input Section -->
+    <div class="flex gap-3 mb-5">
+      <input id="taskInput" type="text" placeholder="Add a todo..." 
+        class="flex-1 px-3 py-3 rounded-md bg-[#0f172a] text-white outline-none">
+      <input id="dateInput" type="date" 
+        class="px-3 py-3 rounded-md bg-[#0f172a] text-white outline-none">
+      <input id="timeInput" type="time"
+        class="px-3 py-3 rounded-md bg-[#0f172a] text-white outline-none">
+      <button id="addBtn" class="bg-indigo-500 hover:bg-indigo-400 px-5 text-2xl rounded-md text-white font-bold">+</button>
+    </div>
 
-    <!-- Main Content Section -->
-    <main>
-        <section class="todo-app my-4">
-            <input type="text" class="border rounded p-2" id="todo-input" placeholder="Add a new task..." />
-            <input type="date" class="border rounded p-2" id="todo-date" placeholder="Select due date..." />
-            <button class="bg-blue-500 text-white rounded p-2" onclick="addTask();">Add</button>
-        </section>
+    <!-- Stats Section -->
+    <div class="flex justify-between mb-4 text-sm">
+      <span id="totalTasks">Total: 0</span>
+      <span id="completedTasks">Completed: 0</span>
+      <span id="pendingTasks">Pending: 0</span>
+    </div>
 
-        <!-- Action Buttons Section -->
-        <section class="flex justify-between my-4">
-            <button class="bg-gray-300 rounded p-2" id="filter-btn">Filter</button>
-            <button class="bg-red-500 text-white rounded p-2" onclick="deleteAllTasks();">Delete All Tasks</button>
-        </section>
+    <!-- Filter Buttons -->
+    <div class="flex justify-between items-center mb-4">
+      <div class="flex gap-2">
+        <button id="filterAll" class="filter-btn bg-gray-700 px-4 py-2 rounded-md hover:bg-gray-600 text-sm">All</button>
+        <button id="filterPending" class="filter-btn bg-gray-700 px-4 py-2 rounded-md hover:bg-gray-600 text-sm">Pending</button>
+        <button id="filterCompleted" class="filter-btn bg-gray-700 px-4 py-2 rounded-md hover:bg-gray-600 text-sm">Completed</button>
+      </div>
+      <button id="deleteAllBtn" class="bg-red-600 px-4 py-2 rounded-md hover:bg-red-500 text-sm font-semibold">Delete All</button>
+    </div>
 
-        <section class="my-4">
-            <h2 class="text-2xl">List of Tasks</h2>
-            <ul id="task-list">
-                <!-- Tasks will be dynamically added here -->
-                <li>No tasks added yet</li>
-            </ul>
-        </section>
-    </main>
+    <!-- Table -->
+    <div class="overflow-hidden rounded-md">
+      <table class="w-full text-left text-sm bg-[#0f172a]">
+        <thead class="text-gray-400 uppercase text-xs border-b border-gray-700">
+          <tr>
+            <th class="p-3">Task</th>
+            <th class="p-3">Due Date</th>
+            <th class="p-3">Status</th>
+            <th class="p-3">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="taskList" class="text-gray-300">
+          <tr><td colspan="4" class="text-center py-4 text-gray-500">No task found</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-    <!-- Footer Section -->
-    <footer>
-        <p class="text-sm">&copy; 2025 Amrulhaq Ikbar Robbani</p>
-    </footer>
-
-    <!-- Javascript External File -->
-    <script src="js/script.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
